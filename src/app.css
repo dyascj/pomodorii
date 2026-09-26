@@ -1,0 +1,261 @@
+@import '@fontsource-variable/m-plus-1';
+
+/*
+ * Design tokens. Colors were sampled from the Wii Menu, Wii Shop and HOME
+ * Menu; the Night theme borrows the Wii's dark options screens.
+ */
+:root {
+	color-scheme: light;
+
+	--font-ui:
+		'M PLUS 1 Variable', 'Hiragino Sans', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+
+	--blue: #34beed;
+	--blue-text: #00a2d4;
+	--blue-strong: #21b2e9;
+	--blue-soft: #a5efff;
+	--blue-glow: rgb(52 190 237 / 0.55);
+
+	--bg-top: #f7f7f7;
+	--bg-bottom: #e6e7ea;
+	--stripe: rgb(0 0 0 / 0.035);
+	--surface: #ffffff;
+	--surface-2: #f3f4f6;
+	--surface-sunk: #e9eaee;
+	--border: #bfbfbf;
+	--border-soft: #d9dadf;
+	--highlight: rgb(255 255 255 / 0.95);
+	--empty: #d6d7db;
+	--empty-line: rgb(0 0 0 / 0.045);
+
+	--text: #5a5d62;
+	--text-strong: #32343a;
+	--text-muted: #8d9097;
+	--clock: #9b9b9b;
+	--date: #747476;
+
+	--bar-top: #b0b2b9;
+	--bar-mid: #d7d8dd;
+	--bar-bottom: #cfd1d8;
+
+	--pill-top: #ffffff;
+	--pill-bottom: #e1e6eb;
+	--pill-border: #a5c9d6;
+
+	--lozenge-top: #ddeef9;
+	--lozenge-bottom: #c7ddf0;
+	--lozenge-text: #323950;
+
+	--focus: #34beed;
+	--tasks: #43b54a;
+	--radio: #ff8752;
+	--settings: #6f7a8a;
+	--board: #34beed;
+	--good: #43b54a;
+	--danger: #e5534b;
+
+	--shadow-sm: 0 1px 2px rgb(20 30 60 / 0.1);
+	--shadow-md: 0 2px 4px rgb(20 30 60 / 0.08), 0 8px 20px -6px rgb(20 30 60 / 0.18);
+	--shadow-lg: 0 4px 10px rgb(20 30 60 / 0.08), 0 24px 48px -16px rgb(20 30 60 / 0.3);
+
+	--radius-tile: clamp(12px, 1.6vw, 22px);
+	--ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+	--ease-zoom: cubic-bezier(0.4, 0, 0.2, 1);
+	--spring: linear(0, 0.25 8%, 0.7 20%, 1.06 38%, 1.02 55%, 0.995 72%, 1);
+}
+
+:root[data-theme='dark'] {
+	color-scheme: dark;
+
+	--blue: #3fc4f0;
+	--blue-text: #6fd6f8;
+	--blue-strong: #1fa9df;
+	--blue-glow: rgb(63 196 240 / 0.45);
+
+	--bg-top: #0c0f13;
+	--bg-bottom: #040608;
+	--stripe: rgb(255 255 255 / 0.03);
+	--surface: #1b2027;
+	--surface-2: #232932;
+	--surface-sunk: #11151a;
+	--border: #3a424d;
+	--border-soft: #2b323b;
+	--highlight: rgb(255 255 255 / 0.08);
+	--empty: #161a20;
+	--empty-line: rgb(255 255 255 / 0.025);
+
+	--text: #c3c8d0;
+	--text-strong: #eef1f5;
+	--text-muted: #7f8793;
+	--clock: #8a929d;
+	--date: #a6adb8;
+
+	--bar-top: #20252c;
+	--bar-mid: #14181d;
+	--bar-bottom: #0d1014;
+
+	--pill-top: #2a313b;
+	--pill-bottom: #1a1f26;
+	--pill-border: #3b5663;
+
+	--lozenge-top: #2a4b61;
+	--lozenge-bottom: #1d3547;
+	--lozenge-text: #e4f3fc;
+
+	--shadow-sm: 0 1px 2px rgb(0 0 0 / 0.5);
+	--shadow-md: 0 2px 4px rgb(0 0 0 / 0.4), 0 8px 20px -6px rgb(0 0 0 / 0.6);
+	--shadow-lg: 0 4px 10px rgb(0 0 0 / 0.4), 0 24px 48px -16px rgb(0 0 0 / 0.8);
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	height: 100%;
+	overflow: hidden;
+	overscroll-behavior: none;
+}
+
+body {
+	font-family: var(--font-ui);
+	font-weight: 500;
+	color: var(--text);
+	background: var(--bg-bottom);
+	-webkit-font-smoothing: antialiased;
+	-webkit-tap-highlight-color: transparent;
+	user-select: none;
+}
+
+:root[data-pointer='wii'],
+:root[data-pointer='wii'] * {
+	cursor: none !important;
+}
+
+button,
+input {
+	font: inherit;
+	color: inherit;
+}
+
+button {
+	cursor: pointer;
+	border: 0;
+	background: none;
+	padding: 0;
+}
+
+button:disabled {
+	cursor: default;
+}
+
+input {
+	user-select: text;
+}
+
+:focus-visible {
+	outline: 3px solid var(--blue);
+	outline-offset: 3px;
+}
+
+::selection {
+	background: var(--blue-soft);
+	color: #0b3a4d;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* The Wii's fine horizontal pinstripes. */
+.pinstripes {
+	background:
+		repeating-linear-gradient(0deg, var(--stripe) 0 2px, transparent 2px 5px),
+		radial-gradient(ellipse at 50% 35%, var(--bg-top) 0%, var(--bg-bottom) 100%);
+}
+
+/* Glossy white-to-grey pill, the Wii's standard button. */
+.pill {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5em;
+	min-height: 2.75rem;
+	padding: 0.55em 1.6em;
+	border-radius: 999px;
+	border: 2px solid var(--pill-border);
+	background: linear-gradient(
+		180deg,
+		var(--pill-top) 0%,
+		var(--pill-top) 45%,
+		var(--pill-bottom) 100%
+	);
+	box-shadow:
+		inset 0 1px 0 var(--highlight),
+		var(--shadow-sm);
+	color: var(--text-strong);
+	font-weight: 700;
+	letter-spacing: 0.01em;
+	transition:
+		transform 380ms var(--spring),
+		border-color 150ms ease,
+		box-shadow 150ms ease;
+}
+
+.pill:hover:not(:disabled),
+.pill:focus-visible {
+	border-color: var(--blue);
+	box-shadow:
+		inset 0 1px 0 var(--highlight),
+		0 0 0 3px var(--blue-glow),
+		var(--shadow-sm);
+	transform: scale(1.06);
+	outline: none;
+}
+
+.pill:active:not(:disabled) {
+	transform: scale(0.95);
+	transition-duration: 80ms;
+}
+
+.pill:disabled {
+	opacity: 0.5;
+}
+
+.pill.primary {
+	border-color: var(--blue-strong);
+	background: linear-gradient(180deg, #5fd3f7 0%, var(--blue-strong) 55%, #1a9fd6 100%);
+	color: #fff;
+	text-shadow: 0 1px 1px rgb(0 60 90 / 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+:root[data-motion='reduced'] *,
+:root[data-motion='reduced'] *::before,
+:root[data-motion='reduced'] *::after {
+	animation-duration: 0.01ms !important;
+	animation-iteration-count: 1 !important;
+	transition-duration: 0.01ms !important;
+}

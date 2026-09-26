@@ -1,29 +1,54 @@
 {
-  "name": "pomodorii",
-  "version": "0.1.2",
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
-  },
-  "dependencies": {
-    "@vercel/analytics": "^1.6.1",
-    "framer-motion": "^12.23.25",
-    "lucide-react": "^0.555.0",
-    "next": "^16.0.7",
-    "next-themes": "^0.4.6",
-    "react": "^19.2.1",
-    "react-dom": "^19.2.1"
-  },
-  "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "^16.0.7",
-    "tailwindcss": "^4",
-    "typescript": "^5"
-  }
+	"name": "pomodorii",
+	"version": "1.0.0",
+	"description": "A pomodoro timer that plays like a Wii channel.",
+	"private": true,
+	"type": "module",
+	"license": "MIT",
+	"author": "Charles J. Dyas <dyascj@gmail.com>",
+	"homepage": "https://www.pomodorii.com",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/dyascj/pomodorii.git"
+	},
+	"bugs": {
+		"url": "https://github.com/dyascj/pomodorii/issues"
+	},
+	"engines": {
+		"node": ">=22"
+	},
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"prepare": "svelte-kit sync || echo ''",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"lint": "prettier --check . && eslint .",
+		"format": "prettier --write .",
+		"test": "vitest run"
+	},
+	"dependencies": {
+		"@fontsource-variable/m-plus-1": "^5.3.0",
+		"@lucide/svelte": "^1.48.0",
+		"@vercel/analytics": "^2.0.1"
+	},
+	"devDependencies": {
+		"@eslint/js": "^10.0.1",
+		"@sveltejs/adapter-vercel": "^6.3.4",
+		"@sveltejs/kit": "^2.70.3",
+		"@sveltejs/vite-plugin-svelte": "^7.3.1",
+		"@types/node": "^24.19.0",
+		"eslint": "^10.11.0",
+		"eslint-config-prettier": "^10.1.8",
+		"eslint-plugin-svelte": "^3.23.0",
+		"globals": "^17.12.0",
+		"prettier": "^3.9.9",
+		"prettier-plugin-svelte": "^4.1.1",
+		"svelte": "^5.57.1",
+		"svelte-check": "^4.7.6",
+		"typescript": "^6.0.3",
+		"typescript-eslint": "^8.70.1",
+		"vite": "^8.3.1",
+		"vitest": "^5.0.2"
+	}
 }
